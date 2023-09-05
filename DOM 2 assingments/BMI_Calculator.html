@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <h3>Enter your weight and height below to calculate your BMI results</h3>
+    <h2>Put your weight in here (KG)</h2>
+    <!-- Removed the incorrect "value" attribute -->
+    <input type="number" id="weight">
+    <h3>And your height in here (CM)</h3>
+    <!-- Removed the incorrect "value" attribute -->
+    <input type="number" id="height">
+    <button id="calc">Calculate BMI</button>
+    <h3 id="result">Your BMI is which means You are </h3>
+    <script>
+        // Moved the variable declarations inside the event listener
+        let btn = document.getElementById("calc");
+        btn.addEventListener("click", function () {
+            // Moved these inside the event listener to get the latest values
+            let height = parseFloat(document.getElementById("height").value);
+            let weight = parseFloat(document.getElementById("weight").value);
+
+            console.log(weight, height);
+
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                alert("Please enter valid values for weight and height.");
+                return;
+            }
+
+            let bmi = weight / ((height / 100) * (height / 100)); // Corrected the formula
+
+            bmi = bmi.toFixed(2);
+
+            console.log(bmi);
+            let result = document.getElementById("result");
+
+            if (bmi <= 18.4) {
+                result.innerText = "Your BMI is " + bmi + ", which means You are Underweight";
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                result.innerText = "Your BMI is " + bmi + ", which means You are Normal Weight";
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                result.innerText = "Your BMI is " + bmi + ", which means You are Overweight";
+            } else if (bmi >= 30) {
+                result.innerText = "Your BMI is " + bmi + ", which means You are Obese";
+            } else {
+                alert("Please enter valid details")
+            }
+        })
+    </script>
+</body>
+</html>
