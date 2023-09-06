@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+          width: 300px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding-left: 35px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .score-box {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .number {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .num {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #333;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+
+        .num:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .score-display {
+            display: flex;
+            justify-content: space-between;
+            height: 30px;
+            font-size: 15px;
+          
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>Leaderboard</h1>
+    <div class="score-box">
+        <label>SCORE:</label>
+        <span id="score">0</span>
+    </div>
+    <div class="score-display">
+      <div>
+          <label>Min Score:</label>
+          <span id="minScore">0</span>
+      </div>
+      <div>
+          <label>Max Score:</label>
+          <span id="maxScore">0</span>
+      </div>
+  </div>
+    <div class="number">
+        <span class="num" onclick="addToScore(1)">1</span>
+        <span class="num" onclick="addToScore(2)">2</span>
+        <span class="num" onclick="addToScore(3)">3</span>
+        <span class="num" onclick="addToScore(4)">4</span>
+        <span class="num" onclick="addToScore(5)">5</span>
+        <span class="num" onclick="addToScore(6)">6</span>
+        <span class="num" onclick="addToScore(7)">7</span>
+        <span class="num" onclick="addToScore(8)">8</span>
+        <span class="num" onclick="addToScore(9)">9</span>
+        <span class="num" onclick="addToScore(0)">0</span>
+    </div>
+    <button onclick="enterScore()">Enter</button>
+ 
+</div>
+<script>
+    // JavaScript functionality
+    let currentScore = "";
+    let minScore = Infinity;
+    let maxScore = -Infinity;
+
+    function addToScore(number) {
+        currentScore += number;
+        document.getElementById("score").textContent = currentScore;
+    }
+
+    function enterScore() {
+        const score = parseInt(currentScore);
+        if (!isNaN(score)) {
+            if (score < minScore) {
+                minScore = score;
+                document.getElementById("minScore").textContent = minScore;
+            }
+            if (score > maxScore) {
+                maxScore = score;
+                document.getElementById("maxScore").textContent = maxScore;
+            }
+        }
+        currentScore = "";
+        document.getElementById("score").textContent = currentScore;
+    }
+</script>
+</body>
+</html>
