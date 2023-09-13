@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" id="SBI">
+  <input type="text" id="accountNumber" placeholder="Enter the Account Number">
+  <input type="text" id="accountName" placeholder="Enter the Account Holder Name">
+  <input type="text" id="accountType" placeholder="Enter the type of account">
+  <input type="number" id="accountBalance" placeholder="Enter the Account Balance">
+  <input type="submit">
+  </form>
+  <button onclick="CheckBalance()" >Check Balance</button>
+  <button onclick="CheckAccount()">Check Account Status</button>
+</body>
+</html>
+<script>
+
+function BankAccount(accountNumber, name, type, balance) {
+    this.accountNumber = accountNumber;
+    this.name = name;
+    this.type = type;
+    this.balance = balance;
+    this.active = true;
+}
+let BankData =[]
+let bank = document.getElementById("SBI")
+bank.addEventListener('submit',function(e){
+  e.preventDefault();
+   let accountNumber = document.getElementById("accountNumber").value
+   let accountName = document.getElementById("accountName").value
+   let accountBalance = document.getElementById("accountBalance")
+   let accountType = document.getElementById("accountType").value
+
+
+
+   let account = new BankAccount(accountNumber,accountName,accountType,accountBalance)
+  BankData.push(account)
+
+})
+
+
+function deposite(amount){
+
+   
+
+
+}
+
+function CheckBalance(){
+  console.log(BankData[0].BankAccount.balance)
+}
+function CheckAccount(){
+  console.log(BankData[0]BankAccount.active)
+}
+</script>
