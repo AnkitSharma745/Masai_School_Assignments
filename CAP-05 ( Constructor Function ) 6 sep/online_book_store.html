@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form  id="authorData">
+
+  <input type="text" id="authorName" placeholder="Enter the author Name " >
+  <input type="date" id="authorDob" placeholder="Enter the DOB " >
+  <input type="text" id="authorNation" placeholder="Enter the author Nationality ">
+  <input type="submit">
+
+  </form>
+  <form id="BookData" >
+    <input type="text" id="bookName" placeholder="Enter the Book Name">
+    <input type="text" id="bookGener" placeholder="Enter the Gener " >
+    <input type="number" id="bookPrice" placeholder="Enter the price of the book " >
+
+    <input type="submit">
+  </form>
+</body>
+</html>
+
+<script>
+  function Author(name,dob,nation){
+    this.name = name;
+    this.dob = dob;
+    this.nation = nation 
+
+  }
+ function Book(title,author,gener,price){
+  this.title = title ;
+  this.author = author;
+  this.gener = gener;
+  this.price = price;
+
+ }
+
+  let myForm =document.getElementById("authorData")
+  
+  let data =[]
+  myForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    let authorName = document.getElementById("authorName").value
+    let authorDob= document.getElementById("authorDob").value
+    let authorNation = document.getElementById("authorNation").value
+    author1 = new Author(authorName,authorDob,authorNation)
+    data.push(author1)
+    console.log(data)
+    myForm.reset();
+
+  })
+  let BookData = document.getElementById("BookData")
+  BookData.addEventListener('submit',function(e){
+    event.preventDefault();
+    let bookName = document.getElementById("bookName").value
+
+    let bookGener = document.getElementById("bookGener").value
+    let bookPrice = document.getElementById("bookPrice").value
+    let book = new Book(bookName,data[0],bookGener,bookPrice)
+    data =[]
+    console.log(book) 
+  })
+
+
+
+</script>
