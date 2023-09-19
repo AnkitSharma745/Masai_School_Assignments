@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      margin: auto;
+      width: 600px;
+      height: 500px;
+      max-width: 600px;
+      border: 2px solid red;
+    }
+    img{
+      width: 100%;
+    }
+    .btn{
+      display:flex;
+      margin: auto;
+      width: 150px;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <img src="" alt="error">
+  <div class="btn">
+    <button  id="left">ᐊ</button>
+    <button id="onbtn">Start/Pause </button>
+  <button  id="right">➤</button>
+
+  </div>
+  </div>
+</body>
+</html>
+<script>
+
+let arr = [
+  "https://a.cdn-hotels.com/gdcs/production136/d1093/c53b8915-8eab-42d7-bf00-806fe477d4fb.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production13/d567/5dce09c0-5695-4062-a2f1-40b6af198f3b.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production156/d176/b4930360-f15d-4cb5-a4ba-1c76c7bd8a88.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production149/d1782/4e480eb2-b1e0-4ca2-8021-2331e8f8ded7.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production129/d969/148f3da9-87cd-4bc2-87f4-86673824a574.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production62/d30/600058a1-46c0-49c6-93d4-12e6fa59ebfd.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production135/d1415/7a22a7ac-0fb9-4901-8207-7936d1cd079b.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production158/d375/8bd96051-345f-497d-90ae-caa8a2a14983.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production74/d185/552cca24-dad1-47ec-9f62-cefabfdf7e2a.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production82/d1787/6fd8bc4e-11ae-4a83-a50f-810945ddc5c6.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production52/d667/87129ebe-2cc7-42c6-bf31-32fbb06574eb.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production41/d821/cc2c1ff7-4238-40a5-8e55-ddd6ec8410ae.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production52/d1744/bb91e463-dac4-427a-8f7a-51b6e10bdb11.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production76/d1429/c6d6157b-f24e-45dc-ab03-30a0d1b70d4f.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://upload.wikimedia.org/wikipedia/commons/7/7e/FEtQacVVEAM12qK.jpg",
+  "https://a.cdn-hotels.com/gdcs/production156/d176/b4930360-f15d-4cb5-a4ba-1c76c7bd8a88.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production149/d1782/4e480eb2-b1e0-4ca2-8021-2331e8f8ded7.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production129/d969/148f3da9-87cd-4bc2-87f4-86673824a574.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production62/d30/600058a1-46c0-49c6-93d4-12e6fa59ebfd.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+  "https://a.cdn-hotels.com/gdcs/production135/d1415/7a22a7ac-0fb9-4901-8207-7936d1cd079b.jpg?impolicy=fcrop&w=1600&h=1066&q=medium",
+ 
+  "https://upload.wikimedia.org/wikipedia/commons/7/7e/FEtQacVVEAM12qK.jpg"
+];
+
+
+let container= document.getElementById("container")
+
+let a = document.getElementsByTagName("img")
+let condition = false
+let count =0 
+setInterval(function(){
+ if(condition){
+  if(count==arr.length-1){
+    count =0 
+  }
+ count++
+ a[0].src = arr[count]
+ }
+},1000)
+let left = document.getElementById("left")
+let right = document.getElementById("right")
+left.addEventListener("click",function(){
+right.disabled = false
+  condition = false
+if(count==0){
+  left.disabled = true
+}
+else{
+  left.disabled = false
+  count--
+  a[0].src = arr[count]
+}
+
+
+})
+right.addEventListener("click",function(){
+  left.disabled = false
+  condition = false
+ if(count==arr.length-1){
+     
+     right.disabled = true
+
+ }
+ else{
+  right.disabled= false
+  count++
+  a[0].src = arr[count]
+ }
+})
+
+let start = document.getElementById("onbtn")
+start.addEventListener("click",function(){
+  condition = true
+  
+    
+})
+
+
+
+</script>

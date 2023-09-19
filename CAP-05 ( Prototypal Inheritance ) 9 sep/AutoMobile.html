@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   
+
+
+
+</body>
+</html>
+<script>
+
+// Define a FourWheeler constructor
+
+function FourWheeler(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+}
+
+// Add a method to FourWheeler prototype
+
+
+FourWheeler.prototype.getDetails = function () {
+    return `${this.year} ${this.make} ${this.model}`;
+    
+};
+
+// here i am creating a constructor function 
+function Car(make, model, year, doors) {
+    FourWheeler.call(this, make, model, year);
+    this.doors = doors;
+}
+
+// Use Object.create() to set up the prototype chain
+Car.prototype = Object.create(FourWheeler.prototype);
+
+// Create a method specific to Car
+Car.prototype.getCarDetails = function () {
+    return `${this.getDetails()}, ${this.doors} doors`;
+};
+
+// Create an SUV constructor that inherits from FourWheeler
+function SUV(make, model, year, capacity) {
+    FourWheeler.call(this, make, model, year);
+    this.capacity = capacity;
+}
+
+// Use Object.create() to set up the prototype chain
+SUV.prototype = Object.create(FourWheeler.prototype);
+
+// Create a method specific to SUV
+SUV.prototype.getSuvDetails = function () {
+    return `${this.getDetails()}, ${this.capacity} passengers`;
+};
+
+// Create instances of Car and SUV
+const myCar = new Car("Toyota", "Camry", 2022, 4);
+const mySUV = new SUV("Ford", "Explorer", 2023, 7);
+
+console.log(myCar)
+console.log(mySUV)
+
+
+
+</script>
