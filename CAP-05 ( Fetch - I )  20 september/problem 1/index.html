@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Your CSS styles -->
+  <style>
+        .container{
+      background-color: teal;
+      margin-top: 20px;
+    }
+    .input{
+        border: 1px solid black;
+        width: 300px;
+        height: 200px;
+        margin: auto;
+        background-color: rgb(224, 217, 208);
+        border-radius: 10px;
+    }
+    input{
+      margin: auto;
+      width: 250px;
+      padding: 6px;
+      margin-bottom: 20px;
+      
+    }
+    label{
+     display: block;
+      margin-left: 20px;
+      font-size: 18px;
+       margin-bottom: 10px;   
+      
+    }
+  .box{
+    display: block; 
+  }
+  button{
+    margin: auto;
+    background-color: teal;
+    width: 200px;
+    border: none;
+    color: white;
+    height: 24px;
+    margin-left: 50px;
+  }
+  .output{
+    border: 1px solid black;
+        width: 300px;
+        height: 200px;
+        margin: auto;
+        background-color: rgb(224, 217, 208);
+        border-radius: 10px;
+        margin-top: 40px;
+
+  }
+  h2{
+    
+    display: inline-block;
+    margin-left: 12px;
+  }
+  span{
+    font-size: 20px;
+    font-weight:600;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input">
+      <label for="text">Please Enter Your Name</label>
+      <input type="text" class="box" id="name" placeholder="Enter your name">
+      <label for="text">Please Enter your age</label>
+      <input type="text" id="age" class="box" placeholder="Enter your age">
+      <button id="enter">Submit</button>
+    </div>
+    
+    <div class="output">
+      <h2>Name:</h2> <span id="insert-data" style="display: inline;"></span>
+      <hr>
+      <h2>Age:</h2> <span id="insert-data1"></span>
+    </div>
+  </div>
+
+  <script>
+    let obj = {};
+    let btn = document.getElementById("enter");
+    
+    // Load data from local storage if available
+    if (localStorage.getItem("data")) {
+      obj = JSON.parse(localStorage.getItem("data"));
+      document.getElementById("insert-data").innerText = obj.Name;
+      document.getElementById("insert-data1").innerText = obj.Age;
+    }
+    
+    btn.addEventListener('click', function () {
+      let inp = document.getElementById("name").value;
+      let inp2 = document.getElementById("age").value;
+
+      // Store data in the object
+      obj.Name = inp;
+      obj.Age = inp2;
+
+      // Store the object in local storage
+      localStorage.setItem("data", JSON.stringify(obj));
+
+      // Display data in the span elements
+      document.getElementById("insert-data").innerText = obj.Name;
+      document.getElementById("insert-data1").innerText = obj.Age;
+    });
+  </script>
+</body>
+</html>
