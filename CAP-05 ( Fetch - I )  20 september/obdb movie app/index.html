@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Search App</title>
+  <style>
+    #movieDetails {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #movieInput {
+      padding: 10px;
+      width: 300px;
+    }
+
+    #searchButton {
+      padding: 10px 20px;
+      background-color: teal;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #movieContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .movie-card {
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f8f8f8;
+      text-align: center;
+    }
+
+    .movie-card img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Movie Search</h1>
+    <input type="text" id="movieInput" placeholder="Enter a movie title">
+    <button id="searchButton">Search</button>
+  </div>
+  <div id="movieContainer" class="movie-details">
+    <!-- Movie data will be displayed here -->
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
