@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 400px;
+      height: 400px;
+      background-color: rgb(150, 236, 236);
+      border: 2px solid black;
+      margin: auto;
+    }
+    h1{
+      text-align: center;
+      font-size: 60px;
+      color: rgb(20, 35, 119);
+      margin-top: 30px;
+    }
+    #start{
+      margin-left: 130px;
+      margin-top: 40px;
+      width: 140px;
+      height: 40px;
+      margin-bottom: 50px;
+      font-size: 20px;
+      border: none;
+      background-color: rgb(25, 238, 181);
+      color: rgb(59, 6, 144);
+    }
+    #increament{
+      width: 100px;
+      height: 40px;
+      margin-left: 60px; 
+      border: none;
+      font-size: 17px;
+      background-color: rgba(36, 209, 209, 0.861);
+    }
+    #decrement{
+
+      width: 100px;
+      height: 40px;
+      margin-left: 50px; 
+      border: none;
+      font-size: 17px;
+      background-color: rgba(36, 209, 209, 0.861);
+   
+    }
+    #clear{
+      width: 200px;
+      height: 40px;
+      margin-left: 80px;
+      background-color: aquamarine;
+      border: none;
+
+    }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="counter">0</h1>
+    <button id="start" >Start/Pause</button>
+    <br>
+    <button id="increament">Increase</button>
+    <button id="decrement">Decrease</button>
+    </div>
+</body>
+</html>
+<script>
+  
+  let condition = false
+  
+  
+  let inc = document.getElementById("increament")
+  let dec = document.getElementById("decrement")
+  let start = document.getElementById("start")
+
+  let count =0
+  let counter = document.getElementById("counter")
+  
+  inc.addEventListener("click",function(){
+    count++
+    counter.innerText = count;
+    condition = false;
+    localStorage.setItem("count",count)
+  })
+  dec.addEventListener("click",function(){
+    count--
+    counter.innerText = count;
+    condition = false;
+     
+  })
+  
+  
+
+
+
+ setInterval(() => {
+   if(condition){
+    count++
+   counter.innerText = count ;
+
+  }
+
+ }, 1000);
+ 
+  start.addEventListener("click",function(){
+    if(condition==false){
+      condition= true
+    }
+    else if(condition==true){
+      condition = false
+    }
+    })
+    
+    
+
+</script>
