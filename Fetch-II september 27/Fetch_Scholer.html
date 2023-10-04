@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Your CSS styles here */
+    *{
+      text-align: center;
+    }
+    body{
+      margin: 0px;
+      
+      
+    }
+    .price{
+      font-size: 20px;
+    }
+    .container{
+        width: 1200px;
+        
+        margin: auto;      
+  
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      row-gap: 20px;
+
+    }
+    .card{
+      border: 2px solid black;
+      width: 350px;
+      height: auto;
+      margin-top: 30px;
+      margin-left: 12px;
+      border-radius: 10px;
+      
+    }
+    img{
+      width: 200px;
+      text-align: center;
+    }
+    #search{
+      width: 300px;
+      height: 20px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="search_bar">
+    <label for="text">Search The Product</label>
+    <input type="text" id="search" placeholder="Enter the text here" oninput="search_data()">
+    
+    <label for="category">Select Category:</label>
+    <select id="category" onchange="filter_data()">
+      <option value="all">All</option>
+      <option value="men's clothing">Men's Clothing</option>
+      <option value="jewelery">Jewelry</option>
+      <option value="electronics">Electronics</option>
+      <option value="women's clothing">Women's Clothing</option>
+    </select>
+  </div>
+  <div class="container"></div>
+
+  <script>
+    let data = []; 
+
+    async function fetch_data() {
+      let response = await fetch("https://fakestoreapi.com/products");
+      data = await response.json(); 
+      show_data(data);
+      
+    }
+
+    function show_data(data) {
+      let container = document.querySelector(".container");
+      container.innerHTML = ""; 
+
+      data.forEach(element => {
+          console.log(element.category)
+        container.innerHTML += `
+          <div class="card">
+            <h3 class="title">${element.title}</h3>
+            <img src="${element.image}" alt="Error">
+            <p class="description">${element.description}</p>
+            <h5 class="price">Price ${element.price}</h5>
+          </div>
+        `;
+      });
+    }
+
+    function search_data() {
+      let search = document.getElementById("search").value.toLowerCase();
+      let filteredData = data.filter(element => element.title.toLowerCase().includes(search));
+      show_data(filteredData);
+    }
+
+    function filter_data() {
+      let selectedCategory = document.getElementById("category").value;
+
+      if (selectedCategory === "all") {
+        show_data(data); 
+      } else {
+        let filteredData = data.filter(element => element.category === selectedCategory);
+        show_data(filteredData);
+      }
+    }
+
+    fetch_data();
+  </script>
+</body>
+</html>
