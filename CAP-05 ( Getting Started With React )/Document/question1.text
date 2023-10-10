@@ -1,0 +1,32 @@
+Question 1. What is React ? 
+
+   Answer: React is a JavaScript library for building user interfaces. 
+           It's an open-source library developed by Facebook 
+           that allows developers to create interactive and dynamic web applications with ease.
+           React is known for its component-based architecture, 
+           which makes it highly modular and reusable.
+          
+          Use Cases: 
+                   React is commonly used for building single-page applications (SPAs) and
+                   dynamic web interfaces. Some common use cases include:
+                  1. Creating interactive web pages with real-time updates.
+                  2. Building complex web applications with a clear component structure.
+                  3. Developing mobile applications using React Native.
+                  4. Integrating with other libraries and frameworks to enhance functionality.
+          
+          Benefits: React offers several benefits to developers.
+                   1. Reusability: Components can be reused throughout the application, reducing redundancy.
+                   2. Virtual DOM: React uses a virtual representation of the DOM, 
+                       making updates more efficient and improving performance.
+                   3. Declarative Syntax: Developers describe how the UI should look based on the application state,
+                                          making it easier to reason about.
+                   4. Community and Ecosystem: React has a large and active community, 
+                                              along with a vast ecosystem of libraries and tools.
+                   5. SEO-Friendly: React can be used on the server-side to improve search engine optimization.
+          Extra Information:
+                            1. React was first released in 2013.
+                            2. It follows the "one-way data flow" principle.
+                            3. JSX (JavaScript XML) is commonly used with React to define the UI components.
+                            4. React is often used in combination with other technologies,
+                               such as Redux for state management and React Router for handling navigation.
+
