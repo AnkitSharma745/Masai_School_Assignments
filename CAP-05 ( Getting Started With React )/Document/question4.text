@@ -1,0 +1,20 @@
+Question 4: 
+
+          Answer: Babel doesn't directly convert HTML code into valid React code. Instead, Babel is primarily focused on transpiling JavaScript code,
+                 including JSX syntax, which is used in React components. 
+                 JSX is a JavaScript extension that allows you to write HTML-like code within your JavaScript files.
+                 Here's how Babel works with JSX in React:
+
+                 1. Parsing JSX: When you write JSX code within your React components, 
+                    it's not valid JavaScript on its own. Babel's role begins by parsing this JSX syntax and converting it into valid JavaScript code.
+                     This step is essential because browsers can only understand standard JavaScript.
+
+                 2. Transforming JSX into React Calls: Babel takes the parsed JSX and transforms it into a series of React function calls. 
+                                                       For example, if you have JSX like <div>Hello, World!</div>, Babel converts it into something like React.
+                                                       createElement('div', null, 'Hello, World!'). This is how JSX gets translated into React elements.
+
+                 3. Transpiling Modern JavaScript: In addition to JSX, Babel also transpiles any modern JavaScript features used in your code, 
+                                                  such as ES6 and ES7 syntax, into equivalent ES5 code that is compatible with older browsers.
+
+                 4. Generating Output: Once all transformations are complete, Babel generates the final JavaScript code that can be executed by browsers.
+                                       This code includes the React function calls and any transpiled JavaScript.
