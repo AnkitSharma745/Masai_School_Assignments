@@ -1,0 +1,3 @@
+Question 5 : What is ReactDOM ? 
+          Answer:  ReactDOM is a library in React that is used for rendering React components into the DOM (Document Object Model). It provides a bridge between your React components and the actual HTML DOM of a web page,
+           allowing you to display your React application on a web page.
