@@ -1,0 +1,13 @@
+What is the meaning of render and root?
+Ans. Render: In React , render refers to the process of converting react components into DOm elements
+     and display them in the browser. 
+     this method is typically used to render react elements into DOM. 
+     it takes a react element and target container where the elements will be mounted 
+     the render method is a crucial part of the react lifecycle 
+     as it facilitates the initial rendering of the application and subsequent updates when the state or props of the components change 
+
+  Root: the root refers to the root  DOM ode that serves as the entry point for a react application 
+  it is the container element where the entire react componenet hierarchy is rendered and displayed 
+  the root element is often specified as the mounting point for the entire application 
+  using the ReactDOM.render method.
+      

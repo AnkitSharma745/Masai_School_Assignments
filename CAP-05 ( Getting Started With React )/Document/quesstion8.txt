@@ -1,0 +1,2 @@
+What is React.createElement?
+React.createElement is a method to create the element with using the react . 

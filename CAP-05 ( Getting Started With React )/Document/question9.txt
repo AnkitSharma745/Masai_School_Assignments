@@ -1,0 +1,10 @@
+What are the three properties that createElement accept?
+Ans. 
+        The createElement accept three properties as arguments 
+        first is the type of the element . 
+         It can be a string representing an HTML tag (e.g., 'div', 'span', 'h1') or a reference to a React component.
+
+       second is the object  that contains properties and attributes you want to assign to the created element. These can include custom attributes,
+        event handlers, or any other data you want to pass to the element
+        third is  The children parameter represents the child elements or content that you want to nest within the created element. It can be a string,
+         another React element, an array of elements, or a combination of these.

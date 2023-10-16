@@ -1,0 +1,12 @@
+What are the packages that you need to import for react to work with?
+1. React packages-----
+
+ <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+
+2. ReactDOM packages ----
+
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+
+
+
+    
