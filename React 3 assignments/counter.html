@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter Problem</title>
+    <style>
+      body{
+        margin-top: 50px;
+
+      }
+    .container{
+      width: 300px;
+      height: 300px;
+      border: 2px solid cyan;
+      background-color: aliceblue;
+      margin: auto;
+
+    }
+    .container:hover{
+      background-color:rgb(157, 199, 236);
+      box-shadow: 4px 4px 4px 4px solid black;
+    }
+    .counter{
+      text-align: center;
+      font-size: 40px;
+    }
+    .btn{
+      width: 250px;
+      height: 30px;
+      margin-top: 30px;
+      margin-left: 23px;
+      font-size: 23px;
+       background-color: teal;
+       color: white;
+       border: none;
+       border-radius: 12px;     
+    }
+ .btn:hover{
+  .container{
+    background-color: brown;
+  }
+ }
+  
+
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://www.unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script type="text/babel">
+      const rootElement = document.getElementById("root")
+      const reactRoot = ReactDOM.createRoot(rootElement)
+
+      function Counter() {
+				const [count, setCount] = React.useState(0)
+
+        const handleClick = () => {
+          setCount(count + 1)
+        }
+
+        return (
+          <div className="container">
+            <h1 className="counter">Count is {count} </h1>
+            <button onClick={handleClick} className="btn">Click Me</button>
+          </div>
+        )
+      }
+
+      reactRoot.render(<Counter/>)
+    </script>
+  </body>
+</html>
