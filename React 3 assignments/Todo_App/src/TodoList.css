@@ -1,0 +1,12 @@
+table{
+  border: 2px solid forestgreen;
+  width: 400px;
+  height: auto;
+
+}
+th{
+  border:1px solid black;
+}
+td{
+  text-align: center;
+}
